@@ -30,7 +30,7 @@
 <p>Now, you need to link nabopicro's javascript to your web page. For better performance, we recommend to put the following script tag at the end of the <code>&lt;body&gt;</code>.</p>
 
 ```html
-<script defer= src="fit/this/path/to/your/needs/nabopicro.min.js"></script>
+<script defer src="fit/this/path/to/your/needs/nabopicro.min.js"></script>
 ```
 
 <p>You now need to put nabopicro's HTML markup on your webpage. To do so, copy-paste it from the given <b>example.html</b> file. The last thing you need to do is initializing the component through Javascript the way it is documented in the <code>&lt;script&gt;</code> tag included in the so called <b>example.html</b> file.</p>
