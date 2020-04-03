@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Nabopicro precompiled CSS. You can also compile the sass sources of nabopicro
+    along with bootstrap with your custom variables for a better integration -->
+    <link rel="stylesheet" href="/fit/this/path/to/your/needs/nabopicro.min.css">
+
+    <title>Say hi to nabopicro!</title>
+  </head>
+  <body>
+
+    <div id="demoNabopicro">
+      <div class="photo">
+        <input type="file" accept="image/*">
+        <div class="photo__helper">
+          <div class="photo__frame photo__frame--circle mx-auto">
+            <canvas class="photo__canvas"></canvas>
+            <div class="message text-center is-empty">
+              <!-- You can set different messages for desktop and mobile this way -->
+              <p class="message--desktop">Click here to add a picture, you can also drop it in this zone.</p>
+              <p class="message--mobile">Tap here to select a picture</p>
+            </div>
+            <div class="message text-center is-loading spinner-grow text-primary mx-auto" role="status">
+              <span class="sr-only">Loading</span>
+            </div>
+            <div class="message text-center is-dragover">
+              <p>Drop your photo</p>
+            </div>
+            <div class="message text-center is-wrong-file-type">
+              <p>File type not supported</p>
+            </div>
+            <div class="message text-center is-wrong-image-size">
+              <p>Your photo must be wider than 350px</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo__options hide">
+          <div class="photo__zoom">
+            <input form="" type="range" class="zoom-handler custom-range">
+          </div>
+          <a href="javascript:;" class="remove">
+            <!-- If you prefer to use your own icon set, just replace the following SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" stroke="currentColor" stroke-linecap="round" stroke-width="32" class="icon icon-trash-outline"><path d="M112 112l20 320c1 18.5 14.4 32 32 32h184c17.7 0 31-13.5 32-32l20-320" fill="none" stroke-linejoin="round"/><path d="M80 112h352" stroke-miterlimit="10"/><path d="M192 112V72a23.9 23.9 0 0 1 24-24h80a23.9 23.9 0 0 1 24 24h0v40m-64 64v224m-72-224l8 224m136-224l-8 224" fill="none" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- For an instant jQuery-free experience we will use bootstrap-native here
+    but you can still use the default bootstrap JS and ready up for bootstrap 5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.27/bootstrap-native-v4.min.js" crossorigin="anonymous"></script>
+    <!-- Nabopicro minified javascript -->
+    <script defer src="/fit/this/path/to/your/needs/nabopicro.min.js"></script>
+    <!-- Your init script -->
+    <script>
+      "use strict";
+
+      var nabopicro;
+
+      window.addEventListener("DOMContentLoaded", function(event) {
+        registerNabopicro();
+        haveFunWithIt();
+      });
+
+      function registerNabopicro() {
+        // Here, we identified nabopicro with an id but you can use any CSS selector to do so.
+        pictureCropper = new nabopicro('#demoNabopicro', null,
+        {
+          imageHelper: true,                          // Enables or disables the semi-transparent overlay around the picture (default true).
+          imageHelperColor: "rgba(255,255,255,.90)",  // Sets a custom color and transparency for the previously mentionned overlay (default "rgba(255,255,255,.90)").
+
+          zoom.initialValue: 1, // Sets a custom initial value for the zoom slider (default 1).
+          zoom.minValue: 0.1,   // Sets a custom minimum value for the zoom slider (default 0.1).
+          zoom.maxValue: 2,     // Sets a custom maximum value for the zoom slider (default 2).
+          zoom.step: 0.01,      // Sets a custom step value for the zoom slider (default 0.01).
+
+          image.originalWidth: 0,   // Forces the selected image to take this width before cropping (default 0: it takes the input image width).
+          image.originalHeight: 0,  // Forces the selected image to take this height before cropping (default 0: it takes the input image height).
+          image.originaly: 0,       // Adds a vertical offset to the image default initial position (default 0).
+          image.originalX: 0,       // Adds an horizontal offset to the image default initial position (default 0).
+          image.minWidth: 350,      // Sets the minimum input image width in pixels required for it to be accepted (default 350).
+          image.minHeight: 350,     // Sets the minimum input image height in pixels required for it to be accepted (default 350).
+          image.maxWidth: 1000,     // Sets the maximum input image width in pixels required for it to be accepted (default 1000).
+          image.maxHeight: 1000,    // Sets the maximum input image height in pixels required for it to be accepted (default 1000).
+
+          // You can also define callback functions for most events (default null):
+          onChange = null,
+          onZoomChange = null,
+          onImageSizeChange = null,
+          onPositionChange = null,
+          onLoad = null,
+          onRemove = null,
+          onError = null
+        })
+      }
+
+      function haveFunWithIt(){
+        //Once initialized, you can have access to nabopicro object public methods.
+        pictureCropper.getData()           // Returns the object model.
+        pictureCropper.getAsDataURL(0.8)   // Returns the picture as an URI encoded JPEG image of the specified quality (default 0.8).
+        pictureCropper.removeImage()       // Removes the image as if you clicked on the trash.
+      }
+    </script>
+  </body>
+</html>
