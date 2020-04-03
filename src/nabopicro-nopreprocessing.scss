@@ -1,0 +1,218 @@
+.hide {
+  display: none !important;
+}
+
+.photo__zoom input[type=range] {
+  box-shadow: none;
+  margin-top: 0.5rem;
+  width: 240px !important;
+}
+
+.photo__frame--circle {
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+}
+
+.photo__helper {
+  position: relative;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 496px;
+  height: 15rem;
+  .canvas--helper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.photo__frame img,
+.photo__helper {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profile {
+  position: relative;
+  width: 496px;
+  left: 50%;
+  transform: TranslateX(-50%);
+}
+
+.photo {
+  text-align: center;
+  margin-bottom: 15px;
+  input[type=file] {
+    display: none;
+  }
+}
+
+.photo__frame {
+  cursor: move;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  width: 240px;
+  height: 240px;
+  transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+  .message {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    color: var(--white);
+    z-index: 3;
+  }
+  .is-dragover {
+    display: none;
+  }
+}
+
+.photo__frame img,
+.photo__helper img {
+  position: relative;
+}
+
+.message p {
+  font-size: 1rem;
+  padding: 0 0.25rem 0 0.25rem;
+  margin-bottom: 0;
+}
+
+.photo--empty .photo__frame {
+  cursor: pointer;
+  &:not(:hover) {
+    background-image: url("https://raw.githubusercontent.com/TheCodeExorcist/nabopicro/master/logo.webp");
+    background-size: contain;
+    p {
+      color: transparent;
+    }
+  }
+}
+
+.profile.is-dragover .photo__frame img,
+.photo--empty img,
+.photo--error img,
+.photo--error--file-type img,
+.photo--error--image-size img,
+.photo--loading img {
+  display: none;
+}
+
+.message--desktop {
+  display: none;
+}
+.message--mobile {
+  display: inline-block;
+}
+
+@include media-breakpoint-up(lg) {
+  .message--desktop {
+    display: block;
+  }
+  .message--mobile {
+    display: none;
+  }
+}
+
+.message.is-empty,
+.message.is-loading,
+.message.is-wrong-file-type,
+.message.is-wrong-image-size,
+.message.is-something-wrong,
+.message.is-dragover {
+  display: none;
+}
+
+.photo--empty {
+  .photo__options {
+    display: none;
+  }
+  .message.is-empty {
+    display: inline-block;
+  }
+  .photo__frame{
+    &:hover {
+      background: var(--primary);
+      .message {
+        color: var(--white);
+      }
+    }
+    &:active {
+      outline: 0;
+      box-shadow: 0 0 0 0.5rem rgba(var(--primary), .25);
+    }
+  }
+}
+
+.photo--loading {
+  .message.is-loading {
+    display: inline-block;
+  }
+  .message.is-empty,
+  .message.is-wrong-file-type,
+  .message.is-dragover,
+  .message.is-wrong-image-size,
+  .photo__options {
+    display: none;
+  }
+}
+
+.photo--error {
+  .message.is-something-wrong {
+    display: inline-block;
+  }
+  .message.is-empty,
+  .message.is-loading,
+  .message.is-dragover,
+  .message.is-wrong-image-size,
+  .photo__options {
+    display: none;
+  }
+}
+
+.photo--error--file-type {
+  .message.is-wrong-file-type {
+    display: inline-block;
+  }
+  .message.is-empty,
+  .message.is-loading,
+  .message.is-dragover,
+  .message.is-wrong-image-size,
+  .photo__options {
+    display: none;
+  }
+}
+
+.photo--error--image-size {
+  .message.is-wrong-image-size {
+    display: inline-block;
+  }
+  .message.is-empty,
+  .message.is-loading,
+  .message.is-dragover,
+  .message.is-wrong-file-type,
+  .photo__options {
+    display: none;
+  }
+}
+
+.profile.is-dragover {
+  .photo__frame .is-dragover {
+    display: inline-block;
+  }
+  .message.is-empty,
+  .message.is-loading,
+  .message.is-wrong-file-type,
+  .message.is-wrong-image-size {
+    display: none;
+  }
+}
