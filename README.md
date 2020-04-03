@@ -24,7 +24,7 @@
 ```html
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 ```
-<p>Also, you need to copy-paste this stylesheet <code>&lt;link&gt;</code> after bootstrap CSS to load our custom rules that comes on top of bootstrap for error display and responsiveness.</p>
+<p>Also, you need to copy-paste this stylesheet <code>&lt;link&gt;</code> after bootstrap CSS to load our custom rules that comes on top of bootstrap for error display and responsiveness. For a better integration, especially if you are building bootstrap from source, we recommend you to compile nabopicro scss with your custom variables along with the bootstrap sources. </p>
 
 ```html
 <link rel="stylesheet" href="fit/this/path/to/your/needs/nabopicro.min.css">
@@ -32,13 +32,13 @@
 
 <p>As nabopicro does not rely on bootstrap javascript, you can either use the stock bootstrap JS and ready up for bootstrap 5 or use <a href="https://github.com/thednp/bootstrap.native">bootstrap native</a> for an instant jQuery-free experience. No icon font is required as we already embed optimized SVG icons from the <a href="https://github.com/ionic-team/ionicons">ionicons</a> pack but you can replace them with your own.</p>
 <br/>
-<p>Now, you need to link nabopicro's javascript to your web page. For better performance, we recommend to put the following script tag at the end of the <code>&lt;body&gt;</code>.</p>
+<p>Now, you need to link nabopicro javascript to your web page. For better performance, we recommend to put the following script tag at the end of the <code>&lt;body&gt;</code>.</p>
 
 ```html
 <script defer src="fit/this/path/to/your/needs/nabopicro.min.js"></script>
 ```
 
-<p>You now need to put nabopicro's HTML markup on your webpage. To do so, copy-paste it from the given <b>example.html</b> file. The last thing you need to do is initializing the component through Javascript the way it is documented in the <code>&lt;script&gt;</code> tag included in the so called <b>example.html</b> file.</p>
+<p>You now need to put nabopicro HTML markup on your webpage. To do so, copy-paste it from the given <b>example.html</b> file. The last thing you need to do is initializing the component through Javascript the way it is documented in the <code>&lt;script&gt;</code> tag included in the so called <b>example.html</b> file.</p>
 <h4>Here you go, enjoy!</h4>
 <br/>
 <h2>What's planned for the future?</h2>
